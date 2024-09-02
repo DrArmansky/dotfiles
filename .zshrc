@@ -1,8 +1,14 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:/Users/kirillsagan/.fig/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+
+# Gopath
+export GOPATH=/Users/$USER/go
+export PATH=$GOPATH/bin:$PATH
+
+export PATH="/opt/homebrew/bin:$PATH"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -74,7 +80,7 @@ HIST_STAMPS="dd.mm.yyyy"
 plugins=(
   git
   kubectl
-  copydir
+  copypath
   copyfile
   dirhistory
 )
@@ -106,10 +112,18 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-#
+alias pst="open -a 'phpstorm.app'"
+alias ls="exa"
+alias cat="bat -p"
+alias top="bpytop"
+
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
 SPACESHIP_TIME_SHOW=true
 SPACESHIP_DIR_TRUNC=0
+
+LC_ALL="en_US.UTF-8"; export LC_ALL
+
+ulimit -n 10240
