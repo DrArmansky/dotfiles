@@ -14,3 +14,4 @@ syntax on
 set laststatus=2
 colorscheme nord
 let g:airline_powerline_fonts = 1
+set number
