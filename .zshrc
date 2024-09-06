@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:/Users/kirillsagan/.fig/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -15,6 +15,11 @@ export PATH="/opt/homebrew/bin:$PATH"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="spaceship"
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+    [ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" # This loads nvm
+    [ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -80,12 +85,12 @@ HIST_STAMPS="dd.mm.yyyy"
 plugins=(
   git
   kubectl
-  copypath
+  copydir
   copyfile
   dirhistory
 )
 
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -108,22 +113,33 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
+
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+
 alias pst="open -a 'phpstorm.app'"
-alias ls="exa"
+alias l="eza -lo"
 alias cat="bat -p"
 alias top="bpytop"
 
+# Git alias
+alias gst="git status"
+alias gl="git pull"
+alias ga="git add"
+alias gp="git push"
+alias glo="git log --pretty=format:\"%C(yellow)%h%Creset %ad | %Cgreen%s%Creset %Cred%d%Creset %Cblue[%an]\" --date=short"
+
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Spaceship
 
 SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
 SPACESHIP_TIME_SHOW=true
 SPACESHIP_DIR_TRUNC=0
 
-LC_ALL="en_US.UTF-8"; export LC_ALL
+source /opt/homebrew/opt/spaceship/spaceship.zsh
 
 ulimit -n 10240
