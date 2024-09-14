@@ -4,17 +4,15 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-# Gopath
-export GOPATH=/Users/$USER/go
-export PATH=$GOPATH/bin:$PATH
-
-export PATH="/opt/homebrew/bin:$PATH"
-
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="spaceship"
+
+# PHP brew
+export PHPBREW_SET_PROMPT=1
+[[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
 
 # NVM
 export NVM_DIR="$HOME/.nvm"
@@ -130,6 +128,7 @@ alias gl="git pull"
 alias ga="git add"
 alias gp="git push"
 alias glo="git log --pretty=format:\"%C(yellow)%h%Creset %ad | %Cgreen%s%Creset %Cred%d%Creset %Cblue[%an]\" --date=short"
+alias gco="git checkout"
 
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -141,5 +140,3 @@ SPACESHIP_TIME_SHOW=true
 SPACESHIP_DIR_TRUNC=0
 
 source /opt/homebrew/opt/spaceship/spaceship.zsh
-
-ulimit -n 10240
