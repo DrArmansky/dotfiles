@@ -50,12 +50,17 @@
 
 keybind = global:ctrl+escape=toggle_quick_terminal
 quick-terminal-size = 40%
-theme = dark:Catppuccin Mocha,light:Dayfox
+theme = dark:Cutie Pro,light:Dayfox
 
-font-size = 14
+# font-family = MesloLGS Nerd Font
+font-size = 13
 # background-blur-radius = 20
 mouse-hide-while-typing = true
 window-decoration = true
 window-padding-x = 12
 window-padding-y = 4, 8
 background-opacity = 0.9
+
+macos-icon = custom
+macos-custom-icon = /Users/kirillsagan/Documents/ghostty_min.icns
+keybind = shift+enter=text:\x1b\r

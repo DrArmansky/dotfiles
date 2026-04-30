@@ -6,28 +6,25 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:/Users/kirillsagan/.fig/bin:$PATH
+
+# Homebrew
+export PATH=/opt/homebrew/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+# export ZSH=$HOME/.oh-my-zsh
+
+# Gopath
+export PATH=$GOPATH/bin:$PATH
+export GOPATH=/Users/$USER/go
+
+#source /opt/homebrew/opt/spaceship/spaceship.zsh
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k"
-
-# PHP brew
-export PHPBREW_SET_PROMPT=1
-[[ -e ~/.phpbrew/bashrc ]] && source ~/.phpbrew/bashrc
-
-# ApicWorld
-export NEXUS_DNS_SERVER=172.27.224.1
-
-# NVM
-export NVM_DIR="$HOME/.nvm"
-    [ -s "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" ] && \. "$HOMEBREW_PREFIX/opt/nvm/nvm.sh" # This loads nvm
-    [ -s "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" ] && \. "$HOMEBREW_PREFIX/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -93,7 +90,7 @@ HIST_STAMPS="dd.mm.yyyy"
 plugins=(
   git
   kubectl
-  copydir
+  copypath
   copyfile
   dirhistory
 )
@@ -121,14 +118,12 @@ plugins=(
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-
+#
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-
 alias pst="open -a 'phpstorm.app'"
-alias l="eza -lo"
+alias l="eza -loa"
 alias cat="bat -p"
 alias top="bpytop"
 
@@ -147,15 +142,17 @@ source $(brew --prefix)/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 # zsh-autosuggestions
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=250"
 
-# Spaceship
-
 #SPACESHIP_PROMPT_FIRST_PREFIX_SHOW=true
 #SPACESHIP_TIME_SHOW=true
 #SPACESHIP_DIR_TRUNC=0
 
-#source /opt/homebrew/opt/spaceship/spaceship.zsh
+LC_ALL="en_US.UTF-8"; export LC_ALL
 
-source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+ulimit -n 10240
+# source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Starship theme
+eval "$(starship init zsh)"
