@@ -1,3 +1,6 @@
+# Iris Autocomplete
+eval "$(iris init zsh)"
+
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:/Users/kirillsagan/.fig/bin:$PATH
 

@@ -64,3 +64,5 @@ background-opacity = 0.9
 macos-icon = custom
 macos-custom-icon = /Users/kirillsagan/Documents/ghostty_min.icns
 keybind = shift+enter=text:\x1b\r
+
+custom-shader = shaders/cursor_smear.glsl
